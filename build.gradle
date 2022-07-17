@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group 'com.testagetn'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+        implementation 'org.javassist:javassist:3.29.0-GA'
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+
+    manifest {
+        attributes("Premain-Class": "com.pg.test.PreMain")
+    }
+}
