@@ -10,8 +10,7 @@ repositories {
 }
 
 dependencies {
-        implementation 'org.javassist:javassist:3.29.0-GA'
-
+        implementation 'org.ow2.asm:asm:9.3'
 }
 
 test {
@@ -24,6 +23,6 @@ jar {
     }
 
     manifest {
-        attributes("Premain-Class": "com.pg.test.PreMain")
+        attributes("Premain-Class": "com.pg.agent.PreMain")
     }
 }
